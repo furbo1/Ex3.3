@@ -6,40 +6,26 @@ namespace Ex3
 {
     abstract class UserError
     {
-       
-        public UserError()
+
+        public string Str = "Some text";
+
+        public virtual string UEMessage(string str)
         {
-            //this.UEMessage();
-
-
-        }
-
-        public virtual string UEMessage(string str="Some text")
-        {
-           
             return str;
         }
 
         public virtual string UEMessage()
         {
-            return "Some text";
-           
+            return this.Str;
         }
+      
     }
 
     class NumericInputError: UserError
 
     {
-        public string Message = "You tried to use a numeric input in a text only field. This fired an error!";;
-        
-        public void NumericInputErrorr()
-        {
-            //this.UEMessage();
 
-
-        }
-
-
+       
 
         public override string UEMessage(string str = "You tried to use a numeric input in a text only field. This fired an error!")
         {
@@ -48,35 +34,61 @@ namespace Ex3
 
         public override string UEMessage()
         {
-            return this.Message;
-
+            return "You tried to use a numeric input in a text only field. This fired an error!";
         }
+
+
+
+
+
+
     }
 
-      
-   
+
+
 
     class TextInputError : UserError
     {
-        public string Message = "You tried to use a text input in anumericonly field. This fired an error!";
-        public TextInputError()
-        {
-           return Message;
-           
-        }
+       
 
         public override string UEMessage(string str = "You tried to use a text input in anumericonly field. This fired an error!")
         {
             return str;
         }
+
         public override string UEMessage()
         {
-            return this.Message;
-
+            return "You tried to use a text input in anumericonly field. This fired an error!";
         }
 
 
+
     }
-      
+
+    class Cutom1 : UserError
+    {
+        public override string UEMessage()
+        {
+            return "String1!";
+        }
+
     }
+    class Cutom2 : UserError
+    {
+        public override string UEMessage()
+        {
+            return "String2!";
+        }
+
+    }
+    class Cutom3 : UserError
+    {
+        public override string UEMessage()
+        {
+            return "String3!";
+        }
+
+    }
+
+}
 
